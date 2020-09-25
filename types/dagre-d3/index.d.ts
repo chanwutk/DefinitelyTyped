@@ -7,7 +7,6 @@
 
 import * as d3 from "d3";
 import * as dagre from "dagre";
-import * as graphlib from "graphlib";
 
 export as namespace dagreD3;
 
@@ -18,7 +17,7 @@ export const intersect: { [shapeName: string]: (node: dagre.Node, points: Array<
 export interface Render {
   // see https://dagrejs.github.io/project/dagre-d3/latest/demo/user-defined.html for example usage
 
-  (selection: d3.Selection<any, any, any, any>, g: graphlib.Graph): void;
+  (selection: d3.Selection<any, any, any, any>, g: dagre.graphlib.Graph<any>): void;
 
   arrows(): { [arrowStyleName: string]: (parent: d3.Selection<any, any, any, any>, id: string, edge: dagre.Edge, type: string) => void };
   shapes(): { [shapeStyleName: string]: (parent: d3.Selection<any, any, any, any>, bbox: any, node: dagre.Node) => void };
